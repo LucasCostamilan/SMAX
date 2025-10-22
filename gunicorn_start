@@ -1,0 +1,28 @@
+#!/bin/bash
+
+NAME=integrador-smax
+DIR=/home/application-user/BackendIURD-HML
+USER=application-user
+GROUP=application-user
+WORKERS=6
+KEEP_ALIVE=20
+TIMEOUT=60
+WORKER_CLASS=uvicorn.workers.UvicornWorker
+VENV=$DIR/.venv/bin/activate
+BIND=0.0.0.0:8001
+LOG_LEVEL=error
+
+cd $DIR
+source $VENV
+
+exec gunicorn app.main:app \
+  --name $NAME \
+  --keep-alive $KEPP_ALIVE \
+  --timeout $TIMEOUT \
+  --workers $WORKERS \
+  --worker-class $WORKER_CLASS \
+  --user=$USER \
+  --group=$GROUP \
+  --bind=$BIND \
+  --log-level=$LOG_LEVEL \
+  --log-file=-
