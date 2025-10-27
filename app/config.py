@@ -4,7 +4,9 @@ class Settings(BaseSettings):
     app_name: str = 'Topdesk x SMAX -- '
     root_path: str
     debug: bool
-    log_file: str 
+    log_file: str
+    api_user: str
+    api_password: str 
     conn_str: str
     topdesk_base_url: str
     topdesk_user: str

@@ -12,8 +12,8 @@ class AuthModel(BaseModel):
         """
         Validate the provided username and password against stored credentials.
         """
-        valid_username = settings.smax_user
-        valid_password = settings.smax_password
+        valid_username = settings.api_user
+        valid_password = settings.api_password
 
         if self.username == valid_username and self.password == valid_password:
             logger.info("Authentication successful.")
